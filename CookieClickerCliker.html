@@ -1,0 +1,28 @@
+<html>
+<body>
+<h1>Cookie Clicker Clicker</h1>
+<p>Tired of clicking those things to Click those Cookies? Try this bookmarket I made: <a href="javascript:(function(){setInterval(function(){Game.goldenCookie.life>0 && !Game.goldenCookie.wrath && Game.goldenCookie.click();},2000);setInterval(function(){Game.ClickCookie();},100);setInterval(function(){var umin=Infinity;for(var i in Game.UpgradesInStore) {var u=Game.UpgradesInStore[i]; umin=Math.min(umin,u.basePrice); u.buy();}for(var i=Game.ObjectsById.length-1;i>=0;--i) {var o=Game.ObjectsById[i]; o.price*Math.pow(Game.priceIncrease,2*o.amount)<umin && o.buy();}},1000);})();">bookmarklet</a></p>
+<p>If you're not sure how to make a bookmarklet, try this link: <a href="https://support.mozilla.org/en-US/kb/bookmarklets-perform-common-web-page-tasks">Use bookmarklets to quickly perform common web page tasks</a></p>
+<h2>Source</h2>
+<pre>javascript: (function() {
+  setInterval(function() {
+		Game.goldenCookie.life > 0 && !Game.goldenCookie.wrath && Game.goldenCookie.click();
+	}, 2000);
+	setInterval(function() {
+		Game.ClickCookie();
+	}, 100);
+	setInterval(function() {
+		var umin = Infinity;
+		for (var i in Game.UpgradesInStore) {
+			var u = Game.UpgradesInStore[i];
+			umin = Math.min(umin, u.basePrice);
+			u.buy();
+		}
+		for (var i = Game.ObjectsById.length - 1; i >= 0; --i) {
+			var o = Game.ObjectsById[i];
+			o.price * Math.pow(Game.priceIncrease, 2 * o.amount) < umin && o.buy();
+		}
+	}, 1000);
+})();</pre>
+</body>
+</html>
