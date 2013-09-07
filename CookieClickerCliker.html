@@ -1,7 +1,7 @@
 <html>
 <body>
 <h1>Cookie Clicker Clicker</h1>
-<p>Tired of clicking those things to Click those Cookies? Try this bookmarket I made: <a href="javascript: (function() {setInterval(function() {Game.goldenCookie.life > 0 && !Game.goldenCookie.wrath && Game.goldenCookie.click();}, 2000);setInterval(function() {Game.ClickCookie();}, 100);setInterval(function() {var umin = Infinity;for (var i in Game.UpgradesInStore) {var u = Game.UpgradesInStore[i];umin = Math.min(umin, u.basePrice);u.buy();}var best = -1, best_cost = Infinity;for (var i=Game.ObjectsById.length-1; i>=0; --i) {var o = Game.ObjectsById[i],p = o.basePrice * Math.pow(Game.priceIncrease, o.amount + 5),c = o.price / o.storedCps;Game.cookies>=0.9*o.price && p < umin && c < best_cost && (best = i) && (best_cost = c);}best != -1 && Game.ObjectsById[best].buy();}, 1000);})();">bookmarklet</a>, it's the only click you need!</p>
+<p>Tired of clicking those things to Click those Cookies? Try this bookmarket I made: <a href="javascript: (function() {setInterval(function() {Game.goldenCookie.life > 0 && !Game.goldenCookie.wrath && Game.goldenCookie.click();}, 2000);setInterval(function() {Game.ClickCookie();}, 100);setInterval(function() {var umin = Infinity;for (var i in Game.UpgradesInStore) {var u = Game.UpgradesInStore[i];umin = Math.min(umin, u.basePrice);u.buy();}var best = -1, best_cost = Infinity;for (var i=Game.ObjectsById.length-1; i>=0; --i) {var o = Game.ObjectsById[i],p = o.basePrice * Math.pow(Game.priceIncrease, o.amount + 5),c = o.price * (this.amount+1) / o.storedCps;Game.cookies>=0.9*o.price && p < umin && c < best_cost && (best = i) && (best_cost = c);}best != -1 && Game.ObjectsById[best].buy();}, 1000);})();">bookmarklet</a>, it's the only click you need!</p>
 <p>If you're not sure how to make a bookmarklet, try this link: <a href="https://support.mozilla.org/en-US/kb/bookmarklets-perform-common-web-page-tasks">Use bookmarklets to quickly perform common web page tasks</a></p>
 <h2>Source</h2>
 <pre>javascript: (function() {
@@ -22,7 +22,7 @@
 		for (var i=Game.ObjectsById.length-1; i>=0; --i) {
 			var o = Game.ObjectsById[i],
 				p = o.basePrice * Math.pow(Game.priceIncrease, o.amount + 5),
-				c = o.price / o.storedCps;
+				c = o.price * (this.amount+1) / o.storedCps;
 			Game.cookies>=0.9*o.price && p < umin && c < best_cost && (best = i) && (best_cost = c);
 		}
 		best != -1 && Game.ObjectsById[best].buy();
