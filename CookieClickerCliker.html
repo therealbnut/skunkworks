@@ -20,9 +20,10 @@
 		}
 		for (var i = Game.ObjectsById.length - 1; i >= 0; --i) {
 			var o = Game.ObjectsById[i];
-			o.price * Math.pow(Game.priceIncrease, 2 * o.amount) < umin && o.buy();
+			o.price * Math.pow(Game.priceIncrease, o.amount + 5) < umin && o.buy();
 		}
 	}, 1000);
-})();</pre>
+})();
+</pre>
 </body>
 </html>
