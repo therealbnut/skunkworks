@@ -1,7 +1,7 @@
 <html>
 <body>
 <h1>Cookie Clicker Clicker</h1>
-<p>Tired of clicking those things to Click those Cookies? Try this bookmarket I made: <a href="javascript:(function(){setInterval(function(){Game.goldenCookie.life>0&&!Game.goldenCookie.wrath&&Game.goldenCookie.click();},2000);setInterval(function(){Game.ClickCookie();},1000/250);setInterval(function(){var umin=Infinity;for(var i in Game.UpgradesInStore){var u=Game.UpgradesInStore[i];umin=Math.min(umin,u.basePrice);u.buy();}var best=-1,best_cost=Infinity;for(var i=Game.ObjectsById.length-1;i>=0;--i){var o=Game.ObjectsById[i],p=o.basePrice*Math.pow(Game.priceIncrease,o.amount+2),c=o.price*(o.amount+=1)/o.cps();o.amount-=1;o.cps();Game.cookies>=0.9*o.price&&p<umin&&c<best_cost&&(best=i)&&(best_cost=c);}best!=-1&&Game.ObjectsById[best].buy();},1000);})();">bookmarklet</a>, it's the only click you need!</p>
+<p>Tired of clicking those things to Click those Cookies? Try this bookmarket I made: <a href="javascript:(function(){setInterval(function(){Game.goldenCookie.life>0&&!Game.goldenCookie.wrath&&Game.goldenCookie.click()},2e3);setInterval(function(){Game.ClickCookie()},1e3/250);setInterval(function(){var e=Infinity;for(var t in Game.UpgradesInStore){if(Game.UpgradesInStore[t].name.indexOf('Revoke')!=0){var n=Game.UpgradesInStore[t];e=Math.min(e,n.basePrice);n.buy()}}var r=-1,i=Infinity;for(var t=Game.ObjectsById.length-1;t>=0;--t){var s=Game.ObjectsById[t],o=s.basePrice*Math.pow(Game.priceIncrease,s.amount+2),u=s.price*(s.amount+=1)/s.cps();s.amount-=1;s.cps();Game.cookies>=.9*s.price&&o<e&&u<i&&(r=t)&&(i=u)}r!=-1&&Game.ObjectsById[r].buy()},1e3)})();">bookmarklet</a>, it's the only click you need!</p>
 <p>If you're not sure how to make a bookmarklet, try this link: <a href="https://support.mozilla.org/en-US/kb/bookmarklets-perform-common-web-page-tasks">Use bookmarklets to quickly perform common web page tasks</a></p>
 <h2>Source</h2>
 <pre>javascript: (function() {
@@ -14,9 +14,11 @@
 	setInterval(function() {
 		var umin = Infinity;
 		for (var i in Game.UpgradesInStore) {
-			var u = Game.UpgradesInStore[i];
-			umin = Math.min(umin, u.basePrice);
-			u.buy();
+			if (Game.UpgradesInStore[i].name.indexOf('Revoke')!=0) {
+				var u = Game.UpgradesInStore[i];
+				umin = Math.min(umin, u.basePrice);
+				u.buy();
+			}
 		}
 		var best = -1,
 			best_cost = Infinity;
@@ -30,6 +32,7 @@
 		best != -1 && Game.ObjectsById[best].buy();
 	}, 1000);
 })();
+
 
 </pre>
 </body>
